@@ -1,0 +1,23 @@
+the chart is clutered column chart
+
+sum of quantity (pradeep) Z quantaity 
+            By
+ Food type (Food-Details) Food-Type 
+
+
+Y axis= sum of quantity 
+X-axis=Food Type
+
+
+Include:  
+  
+
+
+Mian course(6000)
+Snavks(4000)
+Dessert(1000)
+Breakfast(1000)
+Beverage(Nil)
+Appetizer(Nil)
+
+
