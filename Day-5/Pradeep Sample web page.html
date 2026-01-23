@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Power BI Style Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: #0f172a;
+      color: #fff;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 26px;
+    }
+
+    /* KPI Cards */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .kpi {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    .kpi h2 {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .kpi p {
+      font-size: 28px;
+      margin: 10px 0 0;
+      font-weight: bold;
+    }
+
+    /* Charts */
+    .chart-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 20px;
+    }
+
+    .chart-card {
+      background: #1e293b;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    canvas {
+      width: 100% !important;
+      height: 300px !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>📊 Food Delivery Dashboard (Power BI Style)</h1>
+
+    <!-- KPI Section -->
+    <div class="kpi-grid">
+      <div class="kpi">
+        <h2>Total Orders</h2>
+        <p>254</p>
+      </div>
+      <div class="kpi">
+        <h2>Delivered Orders</h2>
+        <p>221</p>
+      </div>
+      <div class="kpi">
+        <h2>Cancelled Orders</h2>
+        <p>33</p>
+      </div>
+      <div class="kpi">
+        <h2>Total Quantity</h2>
+        <p>1,420</p>
+      </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="chart-grid">
+      <div class="chart-card">
+        <h3>Orders by Restaurant</h3>
+        <canvas id="barChart"></canvas>
+      </div>
+
+      <div class="chart-card">
+        <h3>Orders Trend</h3>
+        <canvas id="lineChart"></canvas>
+      </div>
+
+      <div class="chart-card">
+        <h3>Payment Methods</h3>
+        <canvas id="pieChart"></canvas>
+      </div>
+
+      <div class="chart-card">
+        <h3>Delivery Status</h3>
+        <canvas id="doughnutChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Bar Chart
+    new Chart(document.getElementById("barChart"), {
+      type: "bar",
+      data: {
+        labels: ["R211", "R212", "R213", "R214", "R215"],
+        datasets: [{
+          label: "Orders",
+          data: [85, 70, 40, 35, 24],
+        }]
+      }
+    });
+
+    // Line Chart
+    new Chart(document.getElementById("lineChart"), {
+      type: "line",
+      data: {
+        labels: ["Day 1", "Day 2", "Day 3", "Day 4", "Day 5"],
+        datasets: [{
+          label: "Orders",
+          data: [20, 45, 60, 80, 50],
+          tension: 0.4
+        }]
+      }
+    });
+
+    // Pie Chart
+    new Chart(document.getElementById("pieChart"), {
+      type: "pie",
+      data: {
+        labels: ["COD", "UPI", "Card"],
+        datasets: [{
+          data: [120, 90, 44],
+        }]
+      }
+    });
+
+    // Doughnut Chart
+    new Chart(document.getElementById("doughnutChart"), {
+      type: "doughnut",
+      data: {
+        labels: ["Delivered", "Cancelled"],
+        datasets: [{
+          data: [221, 33],
+        }]
+      }
+    });
+  </script>
+</body>
+</html>
